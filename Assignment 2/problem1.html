@@ -1,33 +1,19 @@
 <html>
 
 <head>
-    <script>
-    var birthyear = document.getElementById("birthyear").innerHTML;
-    var currentyear = document.getElementById("currentyear").innerHTML;
-    var calculatebutton = document.getElementById("calculatebutton");
-    calculatebutton.addEventListener('click', CalculateAge(birthyear, currentyear));
-    var stage = document.getElementById("stage").innerHTML;
-    var age = document.getElementById("age").innerHTML;
 
-    function CalculateAge (var byear, var cyear)
-    {
-      age = cyear - byear;
-      if (age < 18)
-      {
-        stage = "Teenager"
-      }
-      else if (age >= 18 |} age <= 35)
-      {
-        stage = "Adult"
-      }
-      else
-      {
-        stage = "Mature Adult"
-      }
-    }
+    <style>
+        * {
+            font-family: arial;
+            font-size: 100%;
+        }
 
+        table {
+            position: relative;
+            left: 40%;
+        }
+    </style>
 
-    </script>
 </head>
 
 
@@ -35,23 +21,49 @@
 <body>
 
     <p id="stage"></p>
-    <p id="age"></p>
 
+    <p id="age"></p>
 
     <table>
         <tr>
             <td><label>Birth Year: </label></td>
-            <td><input type="text" name="birthyear" id="birthyear" /></td>
+            <td><input type="text" id="birthyear" /></td>
         </tr>
         <tr>
             <td><label>Current Year: </label></td>
-            <td><input type="text" name="currentyear" id="currentyear" /></td>
+            <td><input type="text" id="currentyear" /></td>
         </tr>
     </table>
 
     <input type="button" value="Calculate" id="calculatebutton" />
 
 
+
+
+
+
+    <script type="text/javascript">
+        document.getElementById("calculatebutton").addEventListener("click", function() {
+            var age = document.getElementById("currentyear").value - document.getElementById("birthyear").value;
+
+            if (isNaN(age)) {
+                document.getElementById("age").innerHTML = "ERROR: Enter a number.";
+                document.getElementById("stage").innerHTML = "  ";
+            } else {
+
+
+                document.getElementById("age").innerHTML = "Your age: " + age + " years old";
+
+                if (age < 18) {
+                    document.getElementById("stage").innerHTML = "Your stage: Teenager"
+                } else if (age >= 18 && age <= 35) {
+                    document.getElementById("stage").innerHTML = "Your stage: Adult"
+                } else {
+                    document.getElementById("stage").innerHTML = "Your stage: Mature Adult"
+                }
+            }
+        });
+    </script>
 
 </body>
 

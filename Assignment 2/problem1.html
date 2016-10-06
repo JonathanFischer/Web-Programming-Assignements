@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <script>
+    var birthyear = document.getElementById("birthyear").innerHTML;
+    var currentyear = document.getElementById("currentyear").innerHTML;
+    var calculatebutton = document.getElementById("calculatebutton");
+    calculatebutton.addEventListener('click', CalculateAge(birthyear, currentyear));
+    var stage = document.getElementById("stage").innerHTML;
+    var age = document.getElementById("age").innerHTML;
+
+    function CalculateAge (var byear, var cyear)
+    {
+      age = cyear - byear;
+      if (age < 18)
+      {
+        stage = "Teenager"
+      }
+      else if (age >= 18 |} age <= 35)
+      {
+        stage = "Adult"
+      }
+      else
+      {
+        stage = "Mature Adult"
+      }
+    }
+
+
+    </script>
+</head>
+
+
+
+<body>
+
+    <p id="stage"></p>
+    <p id="age"></p>
+
+
+    <table>
+        <tr>
+            <td><label>Birth Year: </label></td>
+            <td><input type="text" name="birthyear" id="birthyear" /></td>
+        </tr>
+        <tr>
+            <td><label>Current Year: </label></td>
+            <td><input type="text" name="currentyear" id="currentyear" /></td>
+        </tr>
+    </table>
+
+    <input type="button" value="Calculate" id="calculatebutton" />
+
+
+
+</body>
+
+</html>

@@ -48,11 +48,10 @@
         document.getElementById("calculatebutton").addEventListener("click", function() {
             var age = document.getElementById("currentyear").value - document.getElementById("birthyear").value;
 
-            if (isNaN(age)) {
+            if (isNaN(age) || document.getElementById("currentyear").value == "" || document.getElementById("birthyear").value == "") {
                 document.getElementById("age").innerHTML = "ERROR: Enter a number.";
                 document.getElementById("stage").innerHTML = "  ";
             } else {
-
 
                 document.getElementById("age").innerHTML = "Your age: " + age + " years old";
 
